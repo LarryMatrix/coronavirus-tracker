@@ -1,6 +1,6 @@
-package io.javabrains.coronavirustracker.services;
+package tz.go.moh.coronavirustracker.services;
 
-import io.javabrains.coronavirustracker.models.LocationStats;
+import tz.go.moh.coronavirustracker.models.LocationStats;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -43,7 +43,7 @@ public class CoronaVirusDataService {
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
         for (CSVRecord record : records) {
             LocationStats locationStat = new LocationStats();
-            locationStat.setState(record.get("Province/State"));
+//            locationStat.setState(record.get("Province/State"));
             locationStat.setCountry(record.get("Country/Region"));
             int latestCases = Integer.parseInt(record.get(record.size() - 1));
             int prevDayCases = Integer.parseInt(record.get(record.size() - 2));
